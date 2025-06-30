@@ -4,6 +4,7 @@ jobs:
   build-macos:
     macos:
       xcode: "14.2.0"
+    working_directory: /tmp
     steps:
       - checkout
       - run:
@@ -13,5 +14,8 @@ jobs:
           name: Build Electron app for macOS M1
           command: npm run make -- --arch=arm64
       - store_artifacts:
-          path: ~/project/out/make
-          destination: build
+        path: /tmp/art-1
+        destination: artifact-file
+
+      - store_artifacts:
+        path: /tmp/artifacts
