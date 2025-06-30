@@ -4,7 +4,6 @@ jobs:
   build-macos:
     macos:
       xcode: "14.2.0"
-    working_directory: /tmp
     steps:
       - checkout
       - run:
