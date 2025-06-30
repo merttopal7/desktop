@@ -13,7 +13,7 @@ jobs:
           name: Build Electron app for macOS M1
           command: npm run make -- --arch=arm64
       - store_artifacts:
-          path: /tmp/art-1
+          path: /Users/distiller/project/out/make
           destination: artifact-file
       - store_artifacts:
           path: /tmp/artifacts
