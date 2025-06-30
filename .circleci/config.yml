@@ -1,22 +1,17 @@
 version: 2.1
-orbs:
-  node: circleci/node@5
+
 jobs:
   build-macos:
     macos:
       xcode: "14.2.0"
     steps:
       - checkout
-      - run: npm install
-      - run: npm run make -- --arch=arm64
-  deploy:
-    docker:
-      - image: cimg/base:stable
-    steps:
       - run:
-          name: deploy
-          command: '#e.g. ./deploy.sh'
-workflows:
-  build-and-test:
-    jobs:
-      - build-macos
+          name: Install dependencies
+          command: npm install
+      - run:
+          name: Build Electron app for macOS M1
+          command: npm run make -- --arch=arm64
+      - store_artifacts:
+          path: out/make
+          destination: build
