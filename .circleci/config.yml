@@ -13,5 +13,5 @@ jobs:
           name: Build Electron app for macOS M1
           command: npm run make -- --arch=arm64
       - store_artifacts:
-          path: out/make
+          path: ~/project/out/make
           destination: build
