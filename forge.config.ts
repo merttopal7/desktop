@@ -11,11 +11,9 @@ import path from 'path';
 const config: ForgeConfig = {
   packagerConfig: {
     asar: true,
+    out: '/tmp/artifacts'
   },
   rebuildConfig: {},
-  packagerConfig: {
-    out: '/tmp/build',
-  },
   makers: [
     new MakerSquirrel({}),
     new MakerZIP({}, ["darwin"]),
